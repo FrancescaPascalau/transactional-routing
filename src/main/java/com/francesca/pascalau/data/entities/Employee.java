@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +13,7 @@ import javax.persistence.Id;
 
 @Setter
 @Getter
-@Entity
+@Entity(name = "employee")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Employee {
@@ -21,5 +22,6 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "full_name")
     private String fullName;
 }

@@ -37,7 +37,7 @@ public abstract class AbstractJPAConfiguration {
     @Bean
     public abstract DataSource actualDataSource();
 
-    private DataSource dataSource() {
+    DataSource dataSource() {
         SLF4JQueryLoggingListener loggingListener = new SLF4JQueryLoggingListener();
         loggingListener.setQueryLogEntryCreator(new InlineQueryLogEntryCreator());
         return ProxyDataSourceBuilder
@@ -85,7 +85,7 @@ public abstract class AbstractJPAConfiguration {
     }
 
     protected String[] packagesToScan() {
-        return new String[]{configurationClass().getPackage().getName()};
+        return new String[]{"com.francesca.pascalau.data.entities"};
     }
 
     protected Class configurationClass() {
