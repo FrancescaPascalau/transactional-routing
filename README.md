@@ -2,6 +2,12 @@
 
 ![](transactional-routing.png)
 
+To route the read-write transactions to the Primary node and read-only transactions to the Replica node, we can define a
+`ReadWriteDataSource` that connects to the Primary node and a `ReadOnlyDataSource` that connect to the Replica node.
+
+The read-write and read-only transaction routing is done by the Spring `AbstractRoutingDataSource` abstraction, which is
+implemented by the `TransactionRoutingDatasource`.
+
 Inside the `TransactionRoutingConfiguration.java` class the `actualDataSource` acts as a facade for the read-write and
 read-only data sources and is implemented using the `TransactionRoutingDataSource` utility.
 
